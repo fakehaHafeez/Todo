@@ -1,0 +1,246 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.main{
+    height: auto;
+    width: 100%;
+    background-image: url(bg-laptop.jfif);
+    background-size: 100% 100%;
+    padding-bottom: 80px;
+
+}
+nav{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 90px;
+    padding: 0px 50px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    align-items: center;
+    color: white;
+    background-color: transparent;
+
+}
+.data{
+    height: auto;
+    width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(18px);
+    margin: auto;
+    padding: 30px;
+    background-color: transparent;
+
+}
+.upload{
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin: auto;
+    /* border-radius: 100%; */
+    
+}
+.upload img{
+    border-radius: 100%;
+    border: 1px solid grey;
+}
+.upload .round{
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    z-index: 1;
+    /* background-color: rgb(65, 107, 124); */
+    background-color: #016d79;
+    width: 46px;
+    height: 46px;
+    border: 3px solid white;
+    line-height: 33px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 50%;
+    font-size: 22px;
+    padding-top: 4px;
+    text-align: center;
+}
+.upload input{
+position: absolute;
+transform: scale(2);
+opacity: 0;
+cursor: pointer;
+z-index: 2;
+}
+
+
+
+
+
+
+form{
+    /* border: 1px solid white; */
+    padding: 38px 0px ;
+}
+form label{
+    font-size: 18px;
+    font-weight: bold;
+margin: 15px 0px;
+
+}
+form input{
+width:100%;
+height:43px;
+margin:0px 0px 20px 0px;
+border:2px solid gray ;
+outline: none;
+border-radius:6px;
+padding: 0px 20px;
+font-size: 18px;
+background-color: #e7e6e9;
+}
+
+
+#myInput1{
+    position: relative;
+
+}
+.eye1{
+    height: 30px;
+    width: 30px;
+    /* border: 2px solid red; */
+    position: absolute;
+    top:66.2%;
+    left: 528px;
+    color: gray;
+    text-align: center;
+    padding-top: 5px;
+    /* border: 2px solid blue; */
+
+    
+}
+.eye2{
+    position: absolute;
+    top:77.5%;
+    /* border: 2px solid blue; */
+
+}
+.check1{
+    position: absolute;
+    top:66.3%;
+    left: 528px;
+    height: 30px;
+    width: 30px;
+    z-index: 11;
+    opacity: 0;
+    /* border:2px solid red; */
+    /* border: 2px solid blue; */
+
+}
+.check2{
+    position: absolute;
+    top:77.5%;
+    /* border: 2px solid blue; */
+
+}
+
+#btn{
+    width:100%;
+    border-radius: 8px;
+    height: 45px;
+/* background-color: rgb(65, 107, 124); */
+background-color: #016d79;
+color: white;
+border: none;
+font-size: 20px;
+
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    nav {
+        padding: 0px 20px;
+    }
+    .data {
+        width: 90%;
+        padding: 20px;
+    }
+    .upload {
+        width: 120px;
+        height: 120px;
+    }
+    .upload .round {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        padding-top: 2px;
+    }
+    form label {
+        font-size: 16px;
+    }
+    form input {
+        font-size: 16px;
+    }
+    .eye1,
+    .check1 {
+        left: 90%;
+        top: 65%;
+        /* border: 2px solid green; */
+
+    }
+
+    .eye2,
+    .check2 {
+        left: 90%;
+        top: 77%;
+        /* border: 2px solid red; */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        padding: 0px 10px;
+    }
+    .data {
+        width: 95%;
+        padding: 15px;
+    }
+    .upload {
+        width: 100px;
+        height: 100px;
+    }
+    .upload .round {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    form label {
+        font-size: 14px;
+    }
+    form input {
+        font-size: 14px;
+        padding: 0px 10px;
+    }
+    .eye1,
+    .check1 {
+        left: 84%;
+        top: 64.7%;
+        /* border: 2px solid green; */
+
+    }
+
+    .eye2,
+    .check2 {
+        left: 84%;
+        top: 77%;
+        /* border: 2px solid red; */
+    }
+    #btn {
+        font-size: 18px;
+        height: 40px;
+    }
+}

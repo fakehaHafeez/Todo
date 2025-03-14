@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="main">
+        <nav>
+         <h1><i class="fa-solid fa-clipboard-list"></i></h1>
+        <h1><i class="fa-solid fa-circle-user"></i>   Logout</h1>
+        </nav>
+          <!-- ............................................ -->
+
+          
+           
+
+          
+
+
+
+
+
+
+
+
+        <!-- ................................. -->
+        <div class="data">
+            <div class="upload">
+      
+                <img src="profile.jfif" accept="image/*" alt=""height="100%"width="100%" id="profile">
+           
+                <div class="round">
+                    <input type="file" id="inpfile">
+                    <i class="fa-solid fa-camera" style="color: white;"></i>
+                </div>
+              </div>
+
+
+              <form id="profileForm">
+                <label >First Name</label><br>
+                <input type="text" id="firstName"><br>
+                <label >Last Name</label><br>
+                <input type="text" id="lastName"><br>
+          <label >Email</label><br>
+    <input type="text" id="email"><br>
+    <label >Old Password</label><br>
+    <input type="password"  id="myInput1">
+    <input type="checkbox" class="check1" onclick="myFunc1()">
+    <div class="eye1"><i class="fa-regular fa-eye"></i></div>
+
+    <label >New Password</label><br>
+    <input type="password"  id="myInput2">
+    <input type="checkbox" class="check1 check2" onclick="myFunc2()">
+    <div class="eye1 eye2"><i class="fa-regular fa-eye"></i></div>
+    
+            </form>
+    <button id="btn">Submit</button>
+        </div>
+    </div>
+</body>
+<script>
+    let profile=document.getElementById("profile")  ;
+        let inpfile=document.getElementById("inpfile");
+        inpfile.onchange=function(){
+            profile.src=URL.createObjectURL(inpfile.files[0])
+        }
+
+
+        function myFunc1() {
+  var show1 = document.getElementById("myInput1");
+
+  if (show1.type === "password") {
+    show1.type = "text";
+  } else {
+    show1.type = "password";
+  }
+}
+
+
+function myFunc2() {
+  var show2 = document.getElementById("myInput2");
+    
+  if (show2.type === "password") {
+    show2.type = "text";
+  } else {
+    show2.type = "password";
+  }
+}
+
+
+
+
+
+// document.getElementById("btn").addEventListener("click", function() {
+  
+            // const firstName = document.getElementById("firstName");
+            // const lastName = document.getElementById("lastName");
+            // const email = document.getElementById("email");
+            // const oldPassword = document.getElementById("myInput1");
+            // const newPassword = document.getElementById("myInput2");
+            
+//             const formData = new FormData();
+//             formData.append("firstName", firstName);
+//             formData.append("lastName", lastName);
+//             formData.append("email", email);
+//             formData.append("oldPassword", oldPassword);
+//             formData.append("newPassword", newPassword);
+
+          
+//             if (inpfile.files[0]) {
+//                 formData.append("profileImage", inpfile.files[0]);
+//             }
+
+          
+//             fetch("https://todo-backend-apis.vercel.app/api/auth/login", {
+//                 method: "POST",
+//                 body: formData
+//             })
+//             .then(response => response.json())
+//             .then(data => {
+                
+//                 console.log("Success:", data);
+//                 alert("Profile updated successfully!");
+//             })
+//             .catch(error => {
+              
+//                 console.error("Error:", error);
+//                 alert("There was an error updating your profile.");
+//             });
+//         });
+
+
+
+function user() {
+   
+   const storedData = localStorage.getItem('userData');
+
+   if (storedData) {
+   
+           
+           const userData = JSON.parse(storedData);
+
+         
+           document.getElementById('firstName').value = userData.firstName || '';
+           document.getElementById('lastName').value = userData.lastName || '';
+           document.getElementById('email').value = userData.email || '';
+           document.getElementById('myInput1').value= ''; 
+           document.getElementById('myInput2').value = '';
+       } 
+    }
+user()
+
+</script>
+</html>

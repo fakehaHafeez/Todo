@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="bgdiv">
+
+        <div class="notifications">
+            
+          </div>
+
+
+
+        <div class="formdiv">
+            <h1>Sign Up</h1>
+            <form id="signup-form">
+                <label >First Name</label><br>
+                <input type="text"  id="first-name" required><br>
+                <label >Last Name</label><br>
+                <input type="text"  id="last-name" required><br>
+          <label >Email</label><br>
+    <input type="text"   id="email" required><br>
+
+    <label >Password</label><br>
+    <input type="password"  id="myInput1" required>
+    <input type="checkbox" class="check1" onclick="myFunc1()">
+    <div class="eye1"><i class="fa-regular fa-eye"></i></div>
+
+    <label >Confirm Password</label><br>
+    <input type="password"  id="myInput2" required>
+    <input type="checkbox" class="check1 check2" onclick="myFunc2()">
+    <div class="eye1 eye2"><i class="fa-regular fa-eye"></i></div>
+    
+
+
+    <button id="btn">Sign Up</button>
+            </form>
+    
+ 
+    <p class="sign"> Already have an account?<a href="index.html">Login</a></p>
+    
+        </div>
+       </div> 
+   
+       
+       <script>
+
+
+function myFunc1() {
+  var show1 = document.getElementById("myInput1");
+
+  if (show1.type === "password") {
+    show1.type = "text";
+  } else {
+    show1.type = "password";
+  }
+}
+
+
+function myFunc2() {
+  var show2 = document.getElementById("myInput2");
+    
+  if (show2.type === "password") {
+    show2.type = "text";
+  } else {
+    show2.type = "password";
+  }
+}     
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+// document.getElementById("signup-form").addEventListener("submit", function(event) {
+//     event.preventDefault();
+
+    
+//     const firstName = document.getElementById("first-name").value;
+//     const lastName = document.getElementById("last-name").value;
+//     const email = document.getElementById("email").value;
+//     const password = document.getElementById("myInput1").value;
+//     const confirmPassword = document.getElementById("myInput2").value;
+
+  
+//     if (!firstName || !lastName || !email || !password || !confirmPassword) {
+//         alert("Please fill in all fields.");
+//         return;
+//     }
+
+//     if (password !== confirmPassword) {
+//         alert("Passwords do not match.");
+//         return;
+//     }
+
+//     const userData = {
+//         firstName: firstName,
+//         lastName: lastName,
+//         email: email,
+//         password: password
+//     };
+//     console.log("User Data:", userData);
+//     localStorage.setItem('userData', JSON.stringify(userData));
+  
+//     fetch('https://todo-backend-apis.vercel.app/api/auth/register', { 
+
+//         method: 'POST',  
+//         headers: {
+//             'Content-Type': 'application/json'  
+//         },
+//         body: JSON.stringify(userData)  
+//     })
+//     .then(response => response.json())  
+//     .then(data => {
+//         if (data.ok) {
+//             alert("Registration successful!");
+//             console.log("Sucessfully Registered");
+//             window.location.href = "APItask.html";
+//         } else {
+//             alert("Error: " + data.message);
+//         }
+//     })
+//     .catch(error => {
+//         alert("An error occurred. Please try again.");
+//     });
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById("signup-form").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const firstName = document.getElementById("first-name").value;
+    const lastName = document.getElementById("last-name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("myInput1").value;
+    const confirmPassword = document.getElementById("myInput2").value;
+
+    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    const userData = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password
+    };
+
+    console.log("User Data:", userData);
+    localStorage.setItem('userData', JSON.stringify(userData));
+
+    try {
+        const response = await fetch('https://todo-backend-apis.vercel.app/api/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            // alert("Registration successful!");
+            success();
+            console.log("Successfully Registered");
+            setTimeout(() => { window.location.href = 'APItask.html';}, 5000);
+        } else {
+            // alert("Error: " + data.message);
+            error();
+        }
+    } catch (error) {
+        alert("An error occurred. Please try again.");
+        console.error("Error:", error);
+    }
+});
+
+
+
+
+
+
+
+
+
+
+var notifications = document.querySelector('.notifications');
+
+
+function success(){
+    let newAlert = document.createElement('div');
+    newAlert.innerHTML = `
+    <div class="alert success">
+        <i class="fa-solid fa-circle-check"></i>
+        <div class="content">
+          <div class="title">Success</div>
+          <span>Registration successful!</span>
+        </div>
+        <i class="fa-solid fa-xmark"></i>
+    </div> `;
+    
+    notifications.appendChild(newAlert)
+    newAlert.timeout = setTimeout(()=>newAlert.remove(), 5000)
+    console.log("click");
+}
+
+function error(){
+    let newAlert2 = document.createElement('div');
+    newAlert2.innerHTML = `
+    <div class="alert alert2 error">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <div class="content">
+          <div class="title">Error</div>
+          <span> Email already exist.</span>
+        </div>
+        <i class="fa-solid fa-xmark"></i>
+    </div> `;
+    
+    notifications.appendChild(newAlert2)
+    newAlert2.timeout = setTimeout(()=>newAlert2.remove(), 5000)
+    console.log("click");
+}
+           </script>
+     
+</body>
+</html>

@@ -1,0 +1,457 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.main{
+    height: auto;
+    width: 100%;
+    background-image: url(bg-laptop.jfif);
+    background-size: 100% 100%;
+    padding-bottom: 80px;
+}
+nav{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    padding: 0px 50px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    align-items: center;
+    color: white;
+    background-color: transparent;
+    
+}
+nav h1 button{
+    /* text-decoration: none; */
+    color: white;
+    background-color: transparent;
+    font-size: 25px;
+    border: none;
+}
+.todo{
+    height: auto;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(16px);
+    margin: auto;
+    padding: 30px;
+    background-color: rgba(0,0,0,0.3);
+    text-align: center;
+    color: white;
+    /* margin-top: 30px; */
+    /* border: 2px solid red; */
+
+}
+.box{
+    height: auto;
+    width: 100%;
+    background-color: white;
+    margin: 30px 0px;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.icon{
+    height: 40px;
+    width: 8%;
+    background-color: #006c79;
+    text-align: center;
+    border-radius: 6px 0px 0px 6px;
+    padding-top: 12px;
+}
+.box input{
+    height: 40px;
+    width: 92%;
+    border-radius: 0px 6px 6px 0px;
+    border: 1px solid gray;
+    outline: none;
+    padding: 0px 20px;
+    font-size: 20px;
+    
+}
+.box button{
+    height: 40px;
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+    background-color: #006c79;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+}
+#loader {
+    display: none;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+}
+.btns button{
+    height: 40px;
+    width: 30%;
+    border-radius: 6px;
+    border: none;
+    background-color: #006c79;
+    color: white;
+    font-size: 18px;
+}
+.btns .btn1{
+    background-color: #1d1d1d;
+}
+#todoData{
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid red;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+
+
+
+#section{
+    /* padding: 45px 0px; */
+    /* border:1px solid red; */
+    margin:0px 0px;
+}
+.sect{
+    color: rgb(11, 11, 11);
+    font-size: 22px;
+    text-align: center;
+    /* padding: 10px 0px; */
+    font-weight: bolder;
+}
+ul{
+    width:100%;
+    /* border:1px solid red; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+   /* overflow: hidden; */
+
+}
+ul li{
+    list-style: none;
+    width:90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    /* border:1px solid red; */
+    color: rgb(30, 30, 30);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 30px;
+    /* transition: 1s; */
+    /* transform: scale(0.9); */
+    /* padding: 15px; */
+
+}
+ul li:hover{
+   /* transform: scale(1); */
+}
+.btn{
+    /* border:1px solid red; */
+    display: flex;
+    align-items: center;
+    width:25%;
+    justify-content: space-evenly;
+    padding-right: 20px;
+}
+.delbtn{
+    /* height:40px;
+    width: 50px; */
+    padding: 3px 2px;
+  background: transparent;
+    color:red;
+    font-size: 24px;
+    border: none;
+ /* border: 1px solid blue; */
+    /* border-radius: 8px;  */
+ 
+}
+.editbtn{
+    /* height:40px;
+    width: 50px; */
+    padding: 3px 2px;
+  background: transparent;
+    color:orange;
+    font-size: 24px;
+    border: none;
+ /* border: 1px solid blue; */
+    /* border-radius: 8px;  */
+ 
+}
+.checkbox{
+    height:20px;
+    width:30px;
+    outline: none;
+    /* border: 2px solid red; */
+}
+#buttons{
+    /* border:1px solid red; */
+    position: absolute;
+    bottom: 40px;
+    /* padding: 20px 0px; */
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    
+}
+.disbtn{
+    width:320px;
+    height:58px;
+    border-radius: 4px;
+    background-color: #da5656;
+    color: white;
+    border: none;
+    font-size: 20px;
+}
+.delli{
+    width:320px;
+    height:58px;
+    border-radius: 4px;
+    background-color:red;
+    color: white;
+    border: none;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+.notifications{
+    position:fixed;
+    top:70px;
+    right: 20px;
+    z-index: 111111;
+}
+.alert{
+    position:relative;
+    padding:10px;
+    color:#fff;
+    margin-bottom: 60px;
+    /* margin-top: 40px; */
+    width:400px;
+    display:grid;
+    grid-template-columns: 70px 1fr 70px;
+    border-radius:5px;
+    /* --color:#0abf30; */
+    --color:#006c79;
+    
+    background:
+   
+     /* linear-gradient(
+          to right , #0abf3055 , #22242f 30%
+    ); */
+    linear-gradient(
+          to right , #02353b , #22242f 30%
+    );
+   animation: show 0.3s ease 1 forwards;
+}
+.alert2{
+    color:#bf0a0a;
+    background:
+   linear-gradient(
+          to right , #ee4444 , #22242f 30%
+    );
+}
+.alert i{
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+.alert2 i{
+    color:#bf0a0a;
+}
+.alert .title{
+    font-size: x-large;
+    font-weight: bold;
+}
+.alert span, .alert i:nth-child(3){
+    color: #fff;
+    /* opacity: 0.6; */
+}
+@keyframes show{
+    0%{
+        transform: translateX(100%);
+    }
+    40%{
+        transform: translateX(-5%);
+    }
+    80%{
+        transform: translateX(0%) ;
+    }
+    100%{
+        transform: translateX(-10%);
+    }
+}
+
+.alert::before{
+    content: "";
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    background-color: var(--color);
+    width: 100%;
+    height: 3px;
+    box-shadow: 0 0 10px var(--color);
+    animation: timeOut 5s linear 1 forwards;
+}
+.alert2::before{
+    content: "";
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    background-color: #bf0a0a;
+    width: 100%;
+    height: 3px;
+    box-shadow: 0 0 10px #bf0a0a;
+    animation: timeOut 5s linear 1 forwards;
+}
+@keyframes timeOut{
+  to{
+    width:0;
+  }
+}
+
+
+#pagination{
+    /* border: 2px solid black; */
+    height:45px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 35px;
+}
+#pagination button{
+    height: 100%;
+    width: 110px;
+    background-color: #006c79;
+    color: white;
+    border: none;
+    font-size: 17px;
+    font-weight: bold;
+}
+#todo{
+  
+  
+    /* padding: 10px 0px; */
+    /* padding-top: 90px; */
+}
+#section{
+    /* border: 2px solid brown; */
+  height: 300px;
+    overflow:scroll;
+    overflow-x:hidden;
+    scroll-behavior: scroll;
+    padding: 10px 0px;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    nav {
+        padding: 0px 20px;
+    }
+    .todo {
+        width: 80%;
+        padding: 20px;
+    }
+    .box input {
+        font-size: 16px;
+    }
+    .btns button {
+        width: 43%;
+        font-size: 16px;
+        margin: 0px 3px;
+
+    }
+    ul li {
+        font-size: 16px;
+        padding-left: 15px;
+        
+    }
+    .btn {
+        width: 35%;
+        padding-right: 10px;
+    }
+    #pagination button {
+        width: 90px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        padding: 0px 10px;
+    }
+    nav h1 {
+        font-size: 18px;
+    }
+    .todo {
+        width: 90%;
+        padding: 15px;
+    }
+    .box input {
+        font-size: 14px;
+        padding: 0px 10px;
+    }
+    .btns button {
+        width: 42%;
+        font-size: 14px;
+        /* border: 2px solid red; */
+        margin: 0px 3px;
+
+    }
+    ul li {
+        font-size: 14px;
+        padding-left: 10px;
+    }
+    .btn {
+        width: 40%;
+        padding-right: 5px;
+
+    }
+    #pagination button {
+        width: 80px;
+        font-size: 14px;
+        /* border: 2px solid red; */
+    }
+
+    .notifications{
+        right: 0px;
+    }
+
+    .alert{
+        width:300px;
+    margin-top: -10px;
+        
+    }
+}

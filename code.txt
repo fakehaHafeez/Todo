@@ -1,0 +1,357 @@
+
+
+//     document.addEventListener('DOMContentLoaded', function () {
+//     const input = document.getElementById("inp");
+//     const section = document.getElementById("section");
+//     const todo = document.getElementById("todo");
+//     const buttons = document.getElementById("buttons");
+//     const search = document.getElementById("search"); 
+//     var add = document.getElementById("addtodo");
+//     var sect = document.createElement("div");
+//     sect.innerHTML = "Todo Not Found";
+//     sect.className = "sect";
+//     section.appendChild(sect);
+
+//     add.addEventListener("click", async function () {
+//         sect.style.display = 'none';
+
+//         const todoText = input.value;
+//         console.log(todoText);
+
+//         //  let loader = document.getElementById("loader");
+//         //     loader.style.display = "block";
+//         //     let btntext = document.getElementById("btn-text");
+//         //     btntext.style.display = "none";
+
+//         const myHeaders = new Headers();
+//         myHeaders.append("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzNiM2I4ZDc2NTM4ZTBmZGJiNDM1NDEiLCJpYXQiOjE3MzQ5NTc3MDcsImV4cCI6MTczNTA0NDEwN30.GlbTJp9chCSpqcVpaRxqLJB--Wp86dQ7Mg59V_0xcRo");
+//         myHeaders.append("Content-Type", "application/json");
+
+//         var TodoData = {
+//             todo: todoText,
+//         };
+//         const raw = JSON.stringify(TodoData);
+
+//         const requestOptions = {
+//             method: "POST",
+//             headers: myHeaders,
+//             body: raw,
+//         };
+
+//         try {
+//             const response = await fetch("https://todo-backend-apis.vercel.app/api/todo", requestOptions);
+//             const responseData = await response.json();
+
+//             const todos = responseData.data;
+
+       
+//             console.log("Response data:", todos);
+
+//             if (responseData) {
+                
+
+
+//                 var li = document.createElement("li");
+//                 const p = document.createElement("p");
+//                 p.innerHTML = todoText;
+//                 li.appendChild(p);
+//                 todo.appendChild(li);
+
+
+//                 const btn = document.createElement("div");
+//                 btn.className = "btn";
+//                 li.appendChild(btn);
+
+//                 const check = document.createElement("input");
+//                 check.type = "checkbox";
+//                 check.className = "checkbox";
+//                 btn.appendChild(check);
+
+//                 check.addEventListener("click", function () {
+//                     if (check.checked) {
+//                         p.style.color = "red";
+//                         p.style.textDecoration = "line-through";
+//                     } else {
+//                         p.style.color = "";
+//                         p.style.textDecoration = "";
+//                     }
+//                 });
+
+//                 const editbtn = document.createElement("button");
+//                 editbtn.className = "fa-solid fa-pen editbtn";
+//                 btn.appendChild(editbtn);
+//                 editbtn.addEventListener("click", function () {
+//                     let newinp = p.innerHTML;
+//                     input.value = newinp;
+//                     add.innerHTML = "Update";
+//                     add.onclick = function () {
+//                         const updatedTodoData = {
+//                             todo: input.value,
+//                             id: todos._id ,
+                             
+//                         };
+//                         const updateRaw = JSON.stringify(updatedTodoData);
+
+//                         const updateRequest = {
+//                             method: "PUT",
+//                             headers: myHeaders,
+//                             body: updateRaw,
+//                         };
+
+//                         fetch("https://todo-backend-apis.vercel.app/api/todo", updateRequest)
+//                             .then(response => response.json())
+//                             .then(updatedData => {
+//                                 if (updatedData) {
+//                                     p.innerHTML = input.value;
+//                                     input.value = "";
+//                                     add.innerHTML = "Add Todo";
+//                                     li.remove();
+//                                     success2();
+//                                 } else {
+//                                     error2();
+//                                 }
+//                             })
+//                             .catch(error => {
+//                                 console.error('Error:', error);
+//                                 error2();
+//                             });
+//                     };
+//                 });
+
+                
+//                 const delbtn = document.createElement("button");
+//                 delbtn.className = "fa-solid fa-trash delbtn";
+//                 btn.appendChild(delbtn);
+//                 delbtn.addEventListener("click", async function() {
+//                     try {
+//                         const deleteTodo = {
+//                             method: "DELETE",
+//                             headers: myHeaders,
+//                         };
+//                         var id = todos._id ;
+
+
+//                         const deleteResponse = await fetch(`https://todo-backend-apis.vercel.app/api/todo/${id}`, deleteTodo);
+
+//                         if (deleteResponse.ok) {
+//                             li.remove();
+//                             success3();
+//                         } else {
+//                             error3();
+//                         }
+//                     } catch (error) {
+//                         console.error('Error:', error);
+//                         error3();
+//                     }
+//                 });
+
+//                 section.style.paddingBottom = "300px";
+
+
+//                 const disbtn = document.createElement("button");
+//                     disbtn.innerHTML = "Disable Delete Todo";
+//                     disbtn.className = "disbtn";
+//                     if (!document.querySelector(".disbtn")) {
+//                         buttons.appendChild(disbtn);
+//                     }
+//                     disbtn.disabled = true;
+//                     disbtn.addEventListener("click", function () {
+//                         li.remove();
+//                     });
+
+//                     const delli = document.createElement("button");
+//                     delli.innerHTML = "Delete Todo";
+//                     delli.className = "delli";
+
+//                     if (!document.querySelector(".delli")) {
+//                         buttons.appendChild(delli);
+//                     }
+//                     delli.disabled = false;
+//                     delli.addEventListener("click", function () {
+//                         li.remove();
+//                     });
+//                 input.value = "";
+//             } else {
+//                 alert("Failed to add Todo. Please try again.");
+//                 error();
+//             }
+
+//             if (response.ok) {
+//                     success();
+//                     console.log("Todo successfully added!");
+//                 } else {
+//                     error();
+//                 }
+//         } catch (error) {
+//             console.error('Error:', error);
+//             error();
+//         }
+//         // finally {
+//         //         loader.style.display = "none";
+//         //         btntext.style.display = "block";
+//         //     }
+//     });
+
+
+// search.addEventListener("input", async function () {
+//         const searchQuery = search.value;
+
+//         if (!searchQuery) {
+//             return;
+//         }
+
+//         try {
+//             const myHeaders = new Headers();
+//             myHeaders.append("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzNiM2I4ZDc2NTM4ZTBmZGJiNDM1NDEiLCJpYXQiOjE3MzQ5NTc3MDcsImV4cCI6MTczNTA0NDEwN30.GlbTJp9chCSpqcVpaRxqLJB--Wp86dQ7Mg59V_0xcRo");
+//             myHeaders.append("Content-Type", "application/json");
+
+//             const response = await fetch(`https://todo-backend-apis.vercel.app/api/todo?search=${searchQuery}&limit=10&page=1`, {
+//                 method: "GET",
+//                 headers: myHeaders,
+//             });
+
+//             const responseData = await response.json();
+//             const data = responseData.data;
+//             console.log("Search Results:", data);
+
+//             todo.innerHTML = ''; 
+
+//             if (data && data.length > 0) {
+//                 sect.style.display = 'none';
+
+//                 data.forEach(todoItem => {
+//                     var li = document.createElement("li");
+//                     const p = document.createElement("p");
+//                     p.innerHTML = todoItem.todo;
+//                     li.appendChild(p);
+//                     todo.appendChild(li);
+
+//                     const btn = document.createElement("div");
+//                     btn.className = "btn";
+//                     li.appendChild(btn);
+
+//                     const check = document.createElement("input");
+//                     check.type = "checkbox";
+//                     check.className = "checkbox";
+//                     btn.appendChild(check);
+
+//                     check.addEventListener("click", function () {
+//                         if (check.checked) {
+//                             p.style.color = "red";
+//                             p.style.textDecoration = "line-through";
+//                         } else {
+//                             p.style.color = "";
+//                             p.style.textDecoration = "";
+//                         }
+//                     });
+
+//                     const editbtn = document.createElement("button");
+//                     editbtn.className = "fa-solid fa-pen editbtn";
+//                     btn.appendChild(editbtn);
+
+
+//                     editbtn.addEventListener("click", function () {
+//                     let newinp = p.innerHTML;
+//                     input.value = newinp;
+//                     add.innerHTML = "Update";
+//                     add.onclick = function () {
+//                         const updatedTodoData = {
+//                             todo: input.value,
+//                             id: todos._id ,
+                             
+//                         };
+//                         const updateRaw = JSON.stringify(updatedTodoData);
+
+//                         const updateRequest = {
+//                             method: "PUT",
+//                             headers: myHeaders,
+//                             body: updateRaw,
+//                         };
+
+//                         fetch("https://todo-backend-apis.vercel.app/api/todo", updateRequest)
+//                             .then(response => response.json())
+//                             .then(updatedData => {
+//                                 if (updatedData) {
+//                                     p.innerHTML = input.value;
+//                                     input.value = "";
+//                                     add.innerHTML = "Add Todo";
+//                                     li.remove();
+//                                     success2();
+//                                 } else {
+//                                     error2();
+//                                 }
+//                             })
+//                             .catch(error => {
+//                                 console.error('Error:', error);
+//                                 error2();
+//                             });
+//                     };
+//                 });
+                  
+
+//                     const delbtn = document.createElement("button");
+//                     delbtn.className = "fa-solid fa-trash delbtn";
+//                     btn.appendChild(delbtn);
+//                     delbtn.addEventListener("click", async function () {
+//                         try {
+//                             const deleteTodo = {
+//                                 method: "DELETE",
+//                                 headers: myHeaders,
+//                             };
+//                             var id = todoItem._id; 
+
+//                             const deleteResponse = await fetch(`https://todo-backend-apis.vercel.app/api/todo/${id}`, deleteTodo);
+
+//                             if (deleteResponse.ok) {
+//                                 li.remove();
+//                                 success3();
+//                             } else {
+//                                 error3();
+//                             }
+//                         } catch (error) {
+//                             console.error('Error:', error);
+//                             error3();
+//                         }
+//                     });
+
+//                     section.style.paddingBottom = "200px";
+//                     const disbtn = document.createElement("button");
+//                     disbtn.innerHTML = "Disable Delete Todo";
+//                     disbtn.className = "disbtn";
+//                     if (!document.querySelector(".disbtn")) {
+//                         buttons.appendChild(disbtn);
+//                     }
+//                     disbtn.disabled = true;
+//                     disbtn.addEventListener("click", function () {
+//                         li.remove();
+//                     });
+
+//                     const delli = document.createElement("button");
+//                     delli.innerHTML = "Delete Todo";
+//                     delli.className = "delli";
+
+//                     if (!document.querySelector(".delli")) {
+//                         buttons.appendChild(delli);
+//                     }
+//                     delli.disabled = false;
+//                     delli.addEventListener("click", function () {
+//                         li.remove();
+//                     });
+//                 input.value = "";
+//                 // search.value= "";
+//                 });
+//             } else {
+//                 sect.style.display = 'none';
+//                 var li = document.createElement("li");
+//                 const p = document.createElement("p");
+//                 p.innerHTML = "No matching todos found";
+//                 li.appendChild(p);
+//                 todo.appendChild(li);
+//             }
+//         } catch (error) {
+//             console.error('Error fetching search results:', error);
+//         }
+        
+//     });
+
+// });

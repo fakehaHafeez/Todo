@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.bgdiv{
+    background-image: url(sky.webp) ;
+    background-size: 100% 100%;
+    /* padding: 0px 10px; */
+    /* height: 125vh; */
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 125px 10px;
+}
+.formdiv{
+    background-color: transparent;
+    position: relative;
+    width:630px;
+    height: auto;
+    /* border:1px solid rgba(255,255,255,0.5); */
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(18px);
+    color: white;
+    padding: 35px 40px;
+}
+.formdiv h1{
+    font-size: 40px;
+}
+form{
+    /* border: 1px solid white; */
+    padding: 38px 0px ;
+}
+form label{
+    font-size: 18px;
+    font-weight: bold;
+margin: 15px 0px;
+
+}
+form input{
+width:100%;
+height:43px;
+margin:0px 0px 40px 0px;
+border:none ;
+outline: none;
+border-radius:6px;
+padding: 0px 20px;
+font-size: 18px;
+}
+
+
+
+
+
+#myInput1{
+    position: relative;
+
+}
+.eye1{
+    height: 30px;
+    width: 30px;
+    /* border: 2px solid red; */
+    position: absolute;
+    top:54%;
+    right: 10%;
+    color: gray;
+    text-align: center;
+    padding-top: 5px;
+    
+}
+.eye2{
+    position: absolute;
+    top: 66.2%;
+}
+.check1{
+    position: absolute;
+    top:54%;
+    right: 10%;
+    height: 30px;
+    width: 30px;
+    z-index: 11;
+    opacity: 0;
+    /* border:2px solid red; */
+}
+.check2{
+    position: absolute;
+    top: 66%;
+}
+
+#btn{
+    width:100%;
+    border-radius: 8px;
+    height: 45px;
+background-color: #2877bc;
+color: white;
+border: none;
+font-size: 20px;
+
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.sign{
+    text-align: center;
+    /* text-decoration: underline; */
+    color: white;
+    padding:35px 0px;
+    font-size: 22px;  
+}
+
+
+
+
+
+.notifications{
+    position:fixed;
+    top:30px;
+    right: 20px;
+}
+.alert{
+    position:relative;
+    padding:10px;
+    color:#fff;
+    margin-bottom: 10px;
+    width:400px;
+    display:grid;
+    grid-template-columns: 70px 1fr 70px;
+    border-radius:5px;
+    --color:#0abf30;
+    background:
+   linear-gradient(
+          to right , #00f13455 , #22242f 30%
+    );
+     /* linear-gradient(
+          to right , #0abf3055 , #22242f 30%
+    ); */
+   animation: show 0.3s ease 1 forwards;
+}
+.alert2{
+    color:#bf0a0a;
+    background:
+   linear-gradient(
+          to right , #fd7b7b , #22242f 30%
+    );
+}
+.alert i{
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+.alert2 i{
+    color:#bf0a0a;
+}
+.alert .title{
+    font-size: x-large;
+    font-weight: bold;
+}
+.alert span, .alert i:nth-child(3){
+    color: #fff;
+    /* opacity: 0.6; */
+}
+@keyframes show{
+    0%{
+        transform: translateX(100%);
+    }
+    40%{
+        transform: translateX(-5%);
+    }
+    80%{
+        transform: translateX(0%) ;
+    }
+    100%{
+        transform: translateX(-10%);
+    }
+}
+
+.alert::before{
+    content: "";
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    background-color: var(--color);
+    width: 100%;
+    height: 3px;
+    box-shadow: 0 0 10px var(--color);
+    animation: timeOut 5s linear 1 forwards;
+}
+.alert2::before{
+    content: "";
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    background-color: #bf0a0a;
+    width: 100%;
+    height: 3px;
+    box-shadow: 0 0 10px #bf0a0a;
+    animation: timeOut 5s linear 1 forwards;
+}
+@keyframes timeOut{
+  to{
+    width:0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 400px) {
+
+    .eye1{
+        top:52.5%;
+        right: 12%;
+        
+    }
+    .eye2{
+        top: 64.5%;
+    }
+    .check1{
+        top:52.5%;
+        right: 13%;
+        /* left: 440px; */
+    }
+    .check2{
+        top: 64%;
+    }
+
+
+    .notifications{
+        top:10px;
+        right: 2px;
+    }
+    .alert{
+        padding:10px;
+        margin-bottom: 10px;
+        width:320px;
+    }
+}
